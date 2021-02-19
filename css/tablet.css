@@ -1,0 +1,46 @@
+header .header__title {
+    margin-left: 70px;
+}
+header .header__nav {
+    margin-right: 90px;
+}
+main {
+    height: 469px;
+}
+.main__article{
+    width: 650px;
+}
+.main__article--title {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+}
+.main__article--text{
+    font-size: 1.4rem;
+    margin-bottom: 100px;
+}
+.main__article--button {
+    padding: 7px;
+    width: 200px;
+    height: 43.5px;
+}
+.language {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.language__title {
+    width: 100%;
+    height: 50px;
+}
+.certificates__card {
+    width: 350px;
+    height: 271px;
+}
+.projects__container .project__preview {
+    width: 350px;
+    height: 198px;
+}
+.footer__social--container {
+    align-items: center;
+}

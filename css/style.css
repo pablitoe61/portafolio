@@ -1,0 +1,353 @@
+:root {
+    --dark-primary: #FFA000;
+    --light-primary: #FFECB3;
+    --primary-color: #FFC107;
+    --text-icons: #212121;
+    --accent-color: #795548;
+    --secondary-text: #757575 ;
+    --divider-color: #BDBDBD ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: "Montserrat" , sans-serif;
+    scroll-behavior: smooth;
+}
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: var(--dark-primary);
+}
+header .header__title{
+    width: 100%;
+    height: 50px;
+    margin-left:30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-icons);
+}
+header .header__nav {
+    /* width: 50%; */
+    height: 50px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--text-icons);
+}
+main {
+    width: 100%;
+    height: 211px;
+    background-image: url("../assets/img/main-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main__article {
+    width: 300px;
+    height: 180px;
+    text-align: center;
+    display: block;
+}
+.main__article--title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+}
+.main__article--text {
+    font-family: "Montserrat" , sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    padding: 5px;
+    margin-bottom: 19px;
+}
+.main__article--button{
+    width: 147px;
+    height: 32px;
+    padding: 4px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 3px solid #FFA000;
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-icons);
+}
+.main__article--button span {
+    width: 12px;
+    height: 12px;
+    display: flex;
+    background-image: url("../assets/icons/arrow-down-sign.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-icons);
+    align-items: center;
+    margin-left: 8px;
+}
+.language{
+    background-color: var(--light-primary);
+    position: relative;
+    padding-bottom: 20px;
+}
+.language .language__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 16px 0;
+    text-align: center;
+}
+.language__html,
+.language__css,
+.language__js,
+.language__python {
+    width: 313px;
+    height: 78px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.language__html--img,
+.language__css--img,
+.language__js--img,
+.language__python--img {
+    width: 50px;
+    height: 50px;
+}
+.language__html--bar, 
+.language__css--bar,
+.language__js--bar,
+.language__python--bar{
+    width: 225px;
+    height: 15px;
+    background-color: var(--dark-primary);
+    margin-left: 13px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 17.5px;
+}
+.language__css--bar {
+    width: 187.5px;
+    margin-right: 62.5px;
+}
+.language__js--bar {
+    width: 150px;
+    margin-right: 100px;
+}
+.language__python--bar {
+    width: 125px;
+    margin-right: 125px;
+}
+.language__html--bar p,
+.language__css--bar p,
+.language__js--bar p,
+.language__python--bar p {
+    font-size: 1.1rem;
+    margin-right: 25px;
+}
+.language__html--text,
+.language__css--text,
+.language__js--text,
+.language__python--text {
+    width: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.certificates {
+    width: 100%;
+    background-color: var(--dark-primary);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.certificates__title,
+.projects__title {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 19px;
+}
+.certificates__card-container,
+.projects__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.certificates__card {
+    width: 160px;
+    height: 124px;
+    margin: 7px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.certificates__card-container .intro-web{
+    background-image: url("../assets/img/diploma-introweb.jpg");   
+}
+.certificates__card-container .progra-basic{
+    background-image: url("../assets/img/diploma-programacion-basica.jpg");
+}
+.certificates__card-container .html-css{
+    background-image: url("../assets/img/diploma-html-css.jpg");
+}
+.certificates__card-container .responsive-mobile{
+    background-image: url("../assets/img/diploma-mobile-first.jpg");
+}
+.certificates__card-container .python{
+    background-image: url("../assets/img/diploma-python.jpg");
+}
+.certificates__card-container .apps-google{
+    background-image: url("../assets/img/google-apps.jpg");
+}
+.projects {
+    width: 100%;
+    background-color: var(--light-primary);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.projects__container .project__preview {
+    width: 160px;
+    height: 90px;
+    margin: 7px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: start;
+}
+.projects__container .google-clone {
+    background-image: url('../assets/img/google-clone.jpg');
+}
+.projects__container .buildawow {
+    background-image: url('../assets/img/buildawow.jpg');
+}
+.projects__container .batatabit {
+    background-image: url('../assets/img/batatabit.jpg');
+}
+footer {
+    width: 100%;
+    height: 88px;
+    background-color: var(--dark-primary);
+}
+footer .footer__title {
+    width: 100%;
+    height: 25px;
+    padding-top: 5px;
+    padding-left: 15px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+footer .footer__networks {
+    display: flex;
+    align-items: center;
+}
+footer .footer__email {
+    width: 50%;
+    height: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer__email .email{
+    width: 15px;
+    height: 15px;
+    background-image: url('../assets/icons/email.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.footer__social--container {
+    width: 40%; 
+    height: 47px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer__social--container a {
+    width: 20px;
+    height: 20px;
+    margin-right: 26px;
+    margin-bottom: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer__social--container a .facebook {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/facebook.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer__social--container a .twitter {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/twitter.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer__social--container a .instagram {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/instagram.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer__social--container a .linkedIn {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/linkedin.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer__social--container a .telegram {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/telegrama.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer__social--container a .unsplash {
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/icons/unsplash-1.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
