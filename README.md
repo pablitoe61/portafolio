@@ -23,6 +23,12 @@ Este es mi sitio web de portafolio personal, inspirado en el template de Develop
 
 Para hacer un pull request a otra cuenta, asegúrate de tener permisos o fork el repositorio correspondiente.
 
+## Última actualización
+
+- **Fecha**: Noviembre 28, 2025
+- **Versión**: 1.1
+- **Cambios**: Sitio web completamente funcional con diseño responsivo
+
 ## Licencia
 
 Este proyecto es de uso personal.
