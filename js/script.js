@@ -262,14 +262,42 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Typing effect for hero title (optional)
-function typeWriter(element, text, speed = 100) {
+// Typing effect for hero title that preserves HTML
+function typeWriterHTML(element, htmlText, speed = 100) {
+    // Create a temporary element to parse HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlText;
+    
+    // Get the plain text for typing
+    const plainText = tempDiv.textContent || tempDiv.innerText;
+    
     let i = 0;
-    element.textContent = '';
+    element.innerHTML = '';
     
     function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
+        if (i < plainText.length) {
+            // Get current character
+            const char = plainText.charAt(i);
+            
+            // Build the current text
+            let currentText = plainText.substring(0, i + 1);
+            
+            // Apply HTML formatting
+            if (currentText.includes('Desarrollador Web')) {
+                const parts = currentText.split('Desarrollador Web');
+                if (parts.length > 1) {
+                    element.innerHTML = parts[0] + '<span class="text-primary">Desarrollador Web</span>' + parts[1];
+                } else {
+                    // Still typing "Desarrollador Web"
+                    const devText = 'Desarrollador Web';
+                    const beforeDev = currentText.substring(0, currentText.lastIndexOf(devText.substring(0, currentText.length - parts[0].length)));
+                    const typingDev = currentText.substring(beforeDev.length);
+                    element.innerHTML = beforeDev + '<span class="text-primary">' + typingDev + '</span>';
+                }
+            } else {
+                element.textContent = currentText;
+            }
+            
             i++;
             setTimeout(type, speed);
         }
@@ -278,13 +306,30 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect on load (uncomment to enable)
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const heroTitle = document.querySelector('.display-2');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 80);
+// Simple typing effect without HTML complications
+function simpleTypeWriter(element, speed = 100) {
+    const originalHTML = element.innerHTML;
+    const plainText = element.textContent || element.innerText;
+    
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < plainText.length) {
+            if (i <= plainText.indexOf('Desarrollador Web')) {
+                element.textContent = plainText.substring(0, i + 1);
+            } else {
+                // Restore original HTML when we reach "Desarrollador Web"
+                element.innerHTML = originalHTML;
+                return;
+            }
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // Restore original HTML at the end
+            element.innerHTML = originalHTML;
+        }
     }
-});
-*/
+    
+    type();
+}

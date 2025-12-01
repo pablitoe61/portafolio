@@ -20,6 +20,40 @@
 
     <!-- Custom CSS -->
     <link href="css/bootstrap-style.css" rel="stylesheet">
+    
+    <!-- Immediate protection script -->
+    <script>
+        // Execute immediately as the page loads
+        (function() {
+            function lockHeroTitle() {
+                const checkAndFix = function() {
+                    const heroTitle = document.getElementById('hero-title');
+                    if (heroTitle) {
+                        const currentContent = heroTitle.innerHTML;
+                        const correctContent = '<span id="hero-text-part1">Soy Pablo, un </span><span class="text-primary" id="hero-text-part2">Desarrollador Web</span>';
+                        
+                        // If content is wrong or shows HTML as text
+                        if (currentContent !== correctContent || currentContent.includes('&lt;span') || currentContent.includes('<span cla')) {
+                            heroTitle.innerHTML = correctContent;
+                        }
+                    }
+                };
+                
+                // Check continuously
+                setInterval(checkAndFix, 50);
+                
+                // Also check on various events
+                document.addEventListener('DOMContentLoaded', checkAndFix);
+                window.addEventListener('load', checkAndFix);
+                
+                // Initial check
+                checkAndFix();
+            }
+            
+            // Start protection immediately
+            lockHeroTitle();
+        })();
+    </script>
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -70,8 +104,9 @@
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="hero-content">
                         <div class="accent-line mb-4"></div>
-                        <h1 class="display-3 fw-bold mb-4">Soy Pablo, un <span class="text-primary">Desarrollador
-                                Web</span></h1>
+                        <h1 class="display-3 fw-bold mb-4" id="hero-title" data-no-typewriter="true">
+                            <span id="hero-text-part1">Soy Pablo, un </span><span class="text-primary" id="hero-text-part2">Desarrollador Web</span>
+                        </h1>
                         <p class="lead mb-4">Me encuentro estudiando Ingeniería en Sistemas de Información y Ciencias de
                             la Computación. Desarrollando sitios web desde 2016.</p>
                         <a href="#about" class="btn btn-primary btn-lg rounded-pill px-4">
@@ -498,6 +533,72 @@
                     }
                 });
             });
+            
+            // Ultra-aggressive protection against typewriter effects
+            function ultraProtectTitle() {
+                const heroTitle = document.getElementById('hero-title');
+                const part1 = document.getElementById('hero-text-part1');
+                const part2 = document.getElementById('hero-text-part2');
+                
+                if (heroTitle && part1 && part2) {
+                    const correctHTML = '<span id="hero-text-part1">Soy Pablo, un </span><span class="text-primary" id="hero-text-part2">Desarrollador Web</span>';
+                    
+                    // Lock the content immediately
+                    Object.defineProperty(heroTitle, 'innerHTML', {
+                        get: function() { return correctHTML; },
+                        set: function() { return correctHTML; }
+                    });
+                    
+                    Object.defineProperty(heroTitle, 'textContent', {
+                        get: function() { return 'Soy Pablo, un Desarrollador Web'; },
+                        set: function() { return; }
+                    });
+                    
+                    // Lock individual parts
+                    Object.defineProperty(part1, 'textContent', {
+                        get: function() { return 'Soy Pablo, un '; },
+                        set: function() { return; }
+                    });
+                    
+                    Object.defineProperty(part2, 'textContent', {
+                        get: function() { return 'Desarrollador Web'; },
+                        set: function() { return; }
+                    });
+                    
+                    // Prevent any modifications
+                    const config = { childList: true, subtree: true, characterData: true, attributes: true };
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            if (mutation.target === heroTitle || heroTitle.contains(mutation.target)) {
+                                heroTitle.innerHTML = correctHTML;
+                            }
+                        });
+                    });
+                    observer.observe(document.body, config);
+                    
+                    // Multiple protection layers
+                    const protectionInterval = setInterval(() => {
+                        if (heroTitle.innerHTML !== correctHTML) {
+                            heroTitle.innerHTML = correctHTML;
+                        }
+                    }, 100);
+                    
+                    // Override common typewriter functions
+                    window.typeWriter = function() { return; };
+                    window.typewriter = function() { return; };
+                    window.typing = function() { return; };
+                }
+            }
+            
+            // Execute immediately and multiple times
+            ultraProtectTitle();
+            document.addEventListener('readystatechange', ultraProtectTitle);
+            window.addEventListener('load', ultraProtectTitle);
+            setTimeout(ultraProtectTitle, 0);
+            setTimeout(ultraProtectTitle, 100);
+            setTimeout(ultraProtectTitle, 500);
+            setTimeout(ultraProtectTitle, 1000);
+            setTimeout(ultraProtectTitle, 3000);
         });
     </script>
 </body>
