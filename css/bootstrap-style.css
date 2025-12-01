@@ -40,6 +40,35 @@ section#home {
     --accent-color: #6146ff;
 }
 
+/* Protection against typewriter effects */
+#hero-title {
+    position: relative;
+}
+
+#hero-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Ensure text parts are always visible */
+#hero-text-part1,
+#hero-text-part2 {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Override any potential hiding */
+#hero-title * {
+    display: inline !important;
+}
+
 /* Container fixes */
 .container, .container-fluid {
     overflow-x: hidden;
